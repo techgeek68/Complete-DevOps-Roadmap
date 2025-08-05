@@ -358,6 +358,7 @@ Feedback & Change Control:
 
 - Effect: Late changes (e.g., “add wishlist”) go to future maintenance release (costly to retrofit)
 
+
 Challenges:
 
 - Inflexibility: Hard to pivot if market or requirements change mid-project
@@ -367,6 +368,8 @@ Challenges:
 - High Rework Cost: Even minor scope changes can require revisiting multiple phases
 
 ```
+
+
 **II. Agile Model:**
 - Focuses on iterative and incremental development
 - The application is initially released with high-priority features in the first iteration
@@ -382,90 +385,84 @@ Example: Agile Model – E-commerce Website
 
 1. Initial Backlog & Architecture Spike (Sprint 0)
 
-- Teams: Cross-functional Scrum Team (Developers, QA, DevOps,
-       UX) + Product Owner + Scrum Master
+- Teams: Cross-functional Scrum Team (Developers, QA, DevOps, UX) + Product Owner + Scrum Master
 
 - Activities:
- - Product Owner writes **user stories** (e.g., “As a shopper, I want to filter products by size so I can find items that fit”).
-    - Team estimates stories (story points) and sets up basic architecture (CI/CD, dev/test environments).
-    - Create a minimal “Definition of Done” and quality checklist.
+- Product Owner writes user stories (e.g., “As a shopper, I want to filter products by size so I can find items that fit”).
+- Team estimates stories (story points) and sets up basic architecture (CI/CD, dev/test environments).
+- Create a minimal “Definition of Done” and quality checklist.
 
 -Timeline: 2 weeks
-    - **Deliverables:** Initial product backlog, architecture skeleton,
-       environments ready
-2. **Sprint Cycle (2-Week Iterations)**
-    - **Sprint Planning (4 hrs):**
+    - Deliverables: Initial product backlog, architecture skeleton, environments ready
 
+2. Sprint Cycle (2-Week Iterations)
 
-- Team selects highest-priority stories (e.g. login & product
-    listing).
-- Breaks stories into tasks (frontend, backend, test tasks).
-- **Development & Testing (10 business days):**
-- Pair programming & test-driven development.
-- Continuous integration runs on every push; immediate
-feedback on build/test status.
-- **Daily Stand-up (15 min):** Synchronize progress and remove
-blockers.
-- **Sprint Review (2 hrs):**
-- Demo working increment to stakeholders (e.g., live product
-grid with pagination).
-- Collect feedback (e.g,. request “infinite scroll” instead of
-pagination).
-- **Sprint Retrospective (1 hr):**
-- Discuss what went well (CI speed, collaboration) and what to
-improve (estimation accuracy).
-- Agree on one or two process improvements for the next
-sprint.
-3. **Example Sprint Breakdown (First 3 Sprints)**
-Sprin
-The Core Stories Delivered Key Feedback & Updates
-1 User login/logout, basic product catalog “Add social login (Google/Facebook)” → backlog
+ -Sprint Planning (4 hrs):
+  - Team selects highest-priority stories (e.g., login & product listing).
+  - Breaks stories into tasks (frontend, backend, test tasks).
 
-```
-2 Shopping cart add/remove, product search + filtering “Enable coupon codes at checkout” → backlog
-```
-```
-3 Checkout flow, integration with Stripe, order history UI tweak: show order confirmation email link
-```
+- Development & Testing (10 business days):
+  - Pair programming & test-driven development.
+  - Continuous integration runs on every push; immediate feedback on build/test status.
 
-4. **Continuous Delivery & Adaptation**
-    - At the end of each sprint, a **potentially shippable** product
-       Increment is ready for real-user testing (feature toggled off until
-       fully polished).
-    - New high-value stories (e.g., “Wishlist,” “Live Chat Support”) can
-       be added anytime to the product backlog and prioritized for the next
-       sprint.
-5. **Deployment & Operations**
+- Daily Stand-up (15 min): Synchronize progress and remove blockers.
+
+- Sprint Review (2 hrs):
+  - Demo working increment to stakeholders (e.g., live product grid with pagination).
+  - Collect feedback (e.g, request “infinite scroll” instead of pagination).
+
+- Sprint Retrospective (1 hr):
+  - Discuss what went well (CI speed, collaboration) and what to improve (estimation accuracy).
+  - Agree on one or two process improvements for the next sprint.
+
+3. Example Sprint Breakdown (First 3 Sprints)
+
+Sprint     The Core Stories Delivered         Key Feedback & Updates
+
+1          User login/logout, basic            “Add social login (Google/Facebook)” → backlog
+           product catalog                       
+
+2          Shopping cart add/remove, product   “Enable coupon codes at checkout” → backlog
+           search + filtering                  
+
+3          Checkout flow, integration with     UI tweak: show order confirmation email link
+           Stripe, order history
+
+4. Continuous Delivery & Adaptation
+    - At the end of each sprint, a potentially shippable product Increment is ready for real-user testing
+      (Feature toggled off until fully polished.)
+
+    - New high-value stories (e.g., “Wishlist,” “Live Chat Support”) can be added anytime to the
+      product backlog and prioritized for the next sprint.
+
+5. Deployment & Operations
     - Small, frequent releases (canary deploys) after every 2–3 sprints.
-    - DevOps monitors metrics and rolls back immediately on critical
-       issues.
-    - Support team triages user tickets; high-priority fixes go into the
-       sprint backlog.
-🔍 **Feedback & Change Handling**
-- **When:** After every Sprint Review (every 2 weeks)
-- **How:** Stakeholder feedback is directly fed into the backlog; no formal
-Change the board needed
-- **Effect:** High-priority changes can appear in the next sprint, keeping the
-product aligned with evolving needs
+    - DevOps monitors metrics and rolls back immediately on critical issues.
+    - Support team triages user tickets; high-priority fixes go into the sprint backlog.
 
-**Benefits & Challenges**
-- **Benefits:**
-- Rapid value delivery (first basic shopping in 2 weeks).
-- High adaptability to new market demands (e.g., seasonal
-promotions).
-- Early detection of usability issues.
-- **Challenges:**
-- Requires strong team discipline to avoid scope creep.
-- Demands continuous stakeholder engagement.
+Feedback & Change Handling
+- When: After every Sprint Review (every 2 weeks)
+- How: Stakeholder feedback is directly fed into the backlog; no formal Change the board needed
+- Effect: High-priority changes can appear in the next sprint, keeping the product aligned with evolving needs
+
+Benefits & Challenges
+- Benefits:
+  - Rapid value delivery (first basic shopping in 2 weeks).
+  - High adaptability to new market demands (e.g., seasonal promotions).
+  - Early detection of usability issues.
 
 
-- Needs robust automation (CI/CD, test suites) to maintain quality.
+- Challenges:
+  - Requires strong team discipline to avoid scope creep.
+  - Demands continuous stakeholder engagement.
+  - Needs robust automation (CI/CD, test suites) to maintain quality.
+```
 
 **Which to Choose?**
 
 - **Waterfall** if your requirements are stable, budget/funding is fixed, and
     you need heavy documentation (e.g., compliance projects).
+  
 - **Agile** if you expect changing requirements, need fast time-to-market, and
     can engage stakeholders continuously.
-
 
