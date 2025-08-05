@@ -266,8 +266,7 @@ thorough testing
 
 
 **Stage 5: Continuous Monitoring**
-
-- Tools used:
+-Tools used:
   
 ◦ Splunk
 Log analysis & security monitoring
@@ -306,7 +305,7 @@ InfluxDB and Elasticsearch.
 - Example:
     ◦ Monitoring a cloud storage app:
 - Prometheus: Alert if server CPU usage > 80%.
-```
+
 - ELK (Elasticsearch, Logstash, Kibana): Analyze logs to debug
     upload failures.
 ```
