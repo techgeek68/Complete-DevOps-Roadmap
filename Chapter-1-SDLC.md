@@ -6,6 +6,7 @@ maintaining software. It ensures the final product meets user requirements and
 is free of defects.
 
 **Key points**:
+
 **Structured Process:**
 → Like following a recipe to bake a cake (ingredients = code, steps = phases).
 
