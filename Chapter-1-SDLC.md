@@ -52,10 +52,9 @@ Example: Imagine building an e-commerce app:
        Stakeholders of a banking app see updates after each completed phase.
 5. Speeds up development
     ◦ Clear steps mean less confusion and faster work
-    ◦ Example:
-
-
+   
 ```
+Example:
 A food delivery app finishes faster because everyone follows the
 same steps.
 ```
