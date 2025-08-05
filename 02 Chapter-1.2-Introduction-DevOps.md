@@ -268,12 +268,15 @@ thorough testing
 **Stage 5: Continuous Monitoring**
 
 - Tools used:
-◦ Splunk – Log analysis & security monitoring
+  
+◦ Splunk
+Log analysis & security monitoring
 
-◦ ELK Stack: (Elasticsearch, Logstash, Kibana) – Open-source log
-management
+◦ ELK Stack
+(Elasticsearch, Logstash, Kibana) – Open-source log management
 
-◦ New Relic: Full-stack APM (app, infra, browser, mobile)
+◦ New Relic 
+Full-stack APM (app, infra, browser, mobile)
 A cloud-based observability platform that provides real-time
 monitoring, tracing, and performance analytics for applications and
 infrastructure.
