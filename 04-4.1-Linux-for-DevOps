@@ -1,0 +1,577 @@
+# 3. Linux for DevOps
+
+## 1. Basic Linux Commands
+
+Linux commands are fundamental tools for DevOps engineers, allowing you to interact with the system, manage files, users, and system resources. Below is an organized guide with explanations and examples to clarify key concepts.
+
+---
+
+### **Core Linux Commands**
+
+- **File/Directory Operations:**  
+  - `ls` : List files and directories  
+  - `cd` : Change directory  
+  - `cp` : Copy files/directories  
+  - `mv` : Move/rename files/directories  
+  - `rm` : Remove files/directories  
+  - `find` : Search for files/directories  
+
+- **Session Basics:**  
+  - Power on and login using your credentials.  
+  - `$` → Normal user’s login prompt  
+  - `#` → Root user’s login prompt  
+  - `~` → Home directory (current user's home folder)  
+
+- **User and Host Info:**  
+  - `whoami` : Display the current logged-in user  
+  - `hostname` : Show system hostname  
+  - `clear` : Clear the terminal screen  
+  - `#` : Comment symbol in scripts  
+
+#### **Examples**
+
+```
+hostname
+```
+```
+whoami
+```
+```
+clear
+```
+```
+ls
+```
+```
+cd /var/log
+```
+
+---
+
+### **Changing the Hostname**
+
+- **Syntax:**  
+  `hostnamectl set-hostname <hostname>`
+
+- **Example:**
+
+```
+sudo hostnamectl set-hostname your_name_server.com.np
+```
+
+---
+
+### **Switching between Graphical and Non-Graphical Terminals**
+
+- For systems with GUI:
+  - `ALT+CTRL+F1` → Switch to GUI (Graphical)
+  - `ALT+CTRL+[F2-F6]` → Switch to non-GUI (Terminal)
+
+---
+
+### **User Management**
+
+- **Create a User:**  
+  - Syntax: `sudo useradd <username>`
+
+  - Examples:
+    ```
+    sudo useradd phpdev
+    ```
+    ```
+    sudo useradd javadev
+    ```
+
+- **Set Password for User:**  
+  - Syntax: `sudo passwd <username>`
+
+  - Examples:
+    ```
+    sudo passwd phpdev
+    ```
+    ```
+    sudo passwd javadev
+    ```
+
+- **Password Recommendations:**  
+  - Use complex passwords (9-12+ characters)
+  - Include uppercase, lowercase, numbers, special characters
+  - Avoid dictionary words and username in the password
+  - Set password expiry policies
+
+---
+
+- **Switch User Account:**  
+  - Syntax: `su – <username>`
+
+  - Example:
+    ```
+    su – phpdev
+    ```
+    ```
+    whoami
+    ```
+    ```
+    su – javadev
+    ```
+    ```
+    whoami
+    ```
+
+- **Change Own Password:**  
+  - Syntax: `passwd`
+
+  - Example:
+    ```
+    passwd
+    # current password: devops
+    # new password: Devops@007
+    # confirm: Devops@007
+    ```
+
+---
+
+### **File Operations**
+
+- **Create/Edit a File:**  
+  - Syntax: `vi <filename>`
+
+  - Example:
+    ```
+    vi devopsfile
+    ```
+    *(Press 'i' to insert text. Press 'ESC', then ':wq' to save and exit)*
+
+- **List Files/Directories:**  
+  ```
+  ls
+  ```
+
+- **View File Content:**
+
+  - `cat` : Concatenate and display file content  
+    - Common options:  
+      - `-n` : Number all lines  
+      - `-b` : Number only non-blank lines  
+      - `-s` : Squeeze multiple blank lines
+
+    - Examples:
+      ```
+      cat /etc/passwd
+      ```
+      ```
+      cat -n file.txt
+      ```
+      ```
+      cat -b file.txt
+      ```
+
+  - `tac` : Display file content in reverse
+    ```
+    tac /etc/passwd
+    ```
+
+  - `more` : Page-by-page file viewer (forward only)
+    ```
+    more /etc/passwd
+    ```
+
+  - `less` : Scrollable file viewer (forward/backward)
+    ```
+    less /etc/passwd
+    ```
+    ```
+    less -N /etc/passwd
+    ```
+
+  - `head` : Show first N lines
+    ```
+    head /etc/passwd
+    ```
+    ```
+    head -n 5 file.txt
+    ```
+
+  - `tail` : Show last N lines or follow file in real-time
+    ```
+    tail /etc/passwd
+    ```
+    ```
+    tail -n 20 /etc/passwd
+    ```
+    ```
+    tail -f /var/log/syslog
+    ```
+
+---
+
+- **View Current Working Directory:**  
+  ```
+  pwd
+  ```
+  *(Example output: /home/user_name)*
+
+---
+
+- **Create a Directory:**  
+  - Syntax: `mkdir <dir_name> ...`
+
+  - Example:
+    ```
+    mkdir devops
+    ```
+    ```
+    mkdir dir1 dir2 dir3
+    ```
+
+- **Create Tree Structure of Directories:**
+  ```
+  mkdir -p SoftTech/{Administration,Developer,Operation}
+  ```
+  ```
+  tree SoftTech
+  ```
+  ```
+  mkdir -p SoftTech/{Administration,Developer/{Jr.Dev,Sr.Dev},Operation}
+  ```
+  ```
+  tree SoftTech
+  ```
+
+---
+
+#### **Path Specifications**
+
+- **Absolute Path:**  
+  ```
+  cd ~/SoftTech/Developer/Jr.Dev
+  ```
+  ```
+  pwd
+  ```
+
+- **Relative Path:**  
+  ```
+  vi ../../Operation/operationfile
+  ```
+
+---
+
+### **Linux Filesystem Hierarchy**
+
+- `/boot` : Boot loader files, Linux kernel
+- `/dev` : Device files for hardware
+- `/etc` : System-wide configuration files
+- `/opt` : Third-party application packages
+- `/var` : Variable files, logs, mail spools
+- `/usr` : User utilities & applications
+  - `/usr/bin` : Non-admin commands
+  - `/usr/sbin` : Admin commands
+
+---
+
+### **Hidden Files/Directories**
+
+- **Create Hidden Directory/File:**
+  ```
+  mkdir .hiddendir
+  ```
+  ```
+  vi .hiddenfile
+  ```
+  ```
+  ls
+  ```
+  ```
+  ls -a
+  ```
+
+---
+
+### **Files/Directories with Special Characters**
+
+- **Create Files/Dirs with Spaces/Special Characters:**
+
+  ```
+  vi "hidden file"
+  ```
+  ```
+  mkdir "my new @dir"
+  ```
+  ```
+  mkdir my\ new
+  ```
+
+---
+
+### **Create Empty File**
+
+```
+touch emptyfile
+```
+
+---
+
+### **Rename File/Directory**
+
+```
+mv emptyfile f1
+```
+```
+mv officialdata offdata
+```
+
+---
+
+### **Move File/Directory**
+
+```
+mv f1 d1
+```
+```
+mv file1 ~/moveexample1
+```
+
+- **Note:** Use `-i` to avoid overwriting.
+
+---
+
+### **Copy File/Directory**
+
+- To copy directories, use `-r`.
+
+```
+cp file2 backup
+```
+```
+cp -r dir1 dir2
+```
+
+---
+
+### **Remove File/Directory**
+
+```
+rm file2
+```
+```
+rm -r backup
+```
+
+---
+
+### **Search Within Files: `grep`**
+
+```
+grep This mixfile
+```
+```
+grep App mixfile
+```
+
+---
+
+### **Pipelining Commands**
+
+Pipelining connects commands so the output of one becomes the input of the next.
+
+```
+cat mixfile | grep is
+```
+```
+cat mixfile | grep line
+```
+```
+cat mixfile | grep is | wc -l
+```
+
+---
+
+### **Compressing Files**
+
+- **gzip:** Compresses files to .gz format.  
+  - To keep original file: `gzip -k <file>`
+
+```
+cp /usr/share/dict/words .
+```
+```
+gzip -v words
+```
+```
+gunzip -v words
+```
+```
+gzip -vk words
+```
+
+---
+
+### **Archiving Files with `tar`**
+
+Archiving combines multiple files into one (optionally compressed).
+
+```
+tar -cvf archive_name.tar file1 file2 folder1
+```
+```
+tar -czvf archive_name.tar.gz file1 file2
+```
+```
+touch source{1..20}
+```
+```
+tar -cvf source_archive.tar source*
+```
+```
+tar -czvf compress_archive.tar.gz source*
+```
+```
+tar -tvf source_archive.tar
+```
+```
+tar -tzvf compress_archive.tar.gz
+```
+```
+tar -xvf source_archive.tar
+```
+```
+tar -xzvf compress_archive.tar.gz
+```
+
+---
+
+### **System Information Commands**
+
+```
+free -h
+```
+```
+lscpu
+```
+```
+df -h
+```
+```
+who
+```
+
+---
+
+## 2. Getting Help in Linux
+
+Linux provides several built-in tools to help you understand commands and troubleshoot problems.
+
+### **Main Help Methods**
+
+#### a. `man` (Manual Pages)
+
+- Shows detailed documentation for commands.
+- Syntax: `man <command>`
+- Navigation:
+  - `/text` : Search for text
+  - `n` : Next occurrence
+  - `N` : Previous occurrence
+  - `q` : Quit
+
+**Example:**
+
+```
+man ls
+```
+
+---
+
+#### b. `--help` Option
+
+- Quick overview of command usage and options.
+- Syntax: `<command> --help`
+
+**Examples:**
+
+```
+cp --help
+```
+```
+ls --help | grep sort
+```
+
+---
+
+#### c. `info` (GNU Info Pages)
+
+- Detailed, node-based help for GNU commands.
+- Sometimes more comprehensive than man pages.
+- Syntax: `info <command>`
+
+**Example:**
+
+```
+info ls
+```
+
+---
+
+### **Searching for Commands**
+
+#### a. `apropos`
+
+- Searches for commands related to a keyword.
+
+```
+apropos copy
+```
+
+---
+
+#### b. `whatis`
+
+- One-line description of a command.
+
+```
+whatis tar
+```
+
+---
+
+### **Summary Table**
+
+| Command   | Description                           | Example           |
+|-----------|---------------------------------------|-------------------|
+| man       | Opens full manual documentation       | man grep          |
+| --help    | Shows a quick usage guide             | mkdir --help      |
+| info      | Provides detailed GNU help            | info mv           |
+| apropos   | Searches by keyword in man pages      | apropos file      |
+| whatis    | One-line description of a command     | whatis echo       |
+
+---
+
+## **Additional Knowledge**
+
+### **Why These Skills Matter in DevOps**
+
+DevOps engineers regularly automate tasks, troubleshoot problems, and manage servers. Mastering Linux commands improves efficiency, helps with scripting and automation (using Bash, Python, etc.), and ensures you can quickly resolve issues in complex environments.
+
+### **Example: Automating a Task with Pipelining**
+
+Suppose you want to find all users with `/bin/bash` as their shell, count them, and save the result:
+
+```
+cat /etc/passwd | grep '/bin/bash' | wc -l > bash_user_count.txt
+```
+
+### **Example: Monitor Logs in Real-Time**
+
+```
+tail -f /var/log/syslog
+```
+
+### **Example: Archive and Compress a Web Directory**
+
+```
+tar -czvf website_backup.tar.gz /var/www/html
+```
+
+---
+
+**Tip**: For beginners, experiment with these commands in a test environment before running them on a production server. Use `man` and `--help` often to build confidence and discover new options!
